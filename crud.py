@@ -4,7 +4,7 @@ class CRUD(Databases):
 
     def readData(self,keyword):
 
-        sql = "SELECT * FROM {}.radiationtable ;".format(keyword)
+        sql = " SELECT * FROM {}.radiationtable ;".format(keyword)
         try: 
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
@@ -16,7 +16,7 @@ class CRUD(Databases):
 
 
     def insertData(self,keyword,where,time,name,value):
-        sql = "INSERT INTO {radiation}.radiationtable (where2, time ,name  ,value ) VALUES ({where}, {time}, {name}, {value}) ;".format(radiation=keyword, where= where,time= time,name = name,value=value)
+        sql = " INSERT INTO {radiation}.radiationtable (where2, time ,name  ,value ) VALUES ({where}, {time}, {name}, {value}) ;".format(radiation=keyword, where= where,time= time,name = name,value=value)
         print(sql)
         try:
             self.cursor.execute(sql)
