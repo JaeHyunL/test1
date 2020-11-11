@@ -1,9 +1,6 @@
 from databases2 import Databases
 
 class CRUD(Databases):
-'''
-    CRUD class 
-'''
 
     def readData(self,keyword):
         """
@@ -15,7 +12,7 @@ class CRUD(Databases):
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
         except Exception as e:
-            return("error : {}".format(e))
+            return("Log point 1-1 : {}".format(e))
 
         return result
     
@@ -29,7 +26,7 @@ class CRUD(Databases):
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
         except Exception as e:
-            return("error : {}".format(e))
+            return("Log point 1-2: {}".format(e))
 
         return result
     
@@ -47,11 +44,8 @@ class CRUD(Databases):
         if wha == 'radiorate':
             wha = 'radiationtable'
         sql = " INSERT INTO  {keyword}.{wha}  (where2, time ,name  ,value ) VALUES  ('{where}', '{time}', '{name}', '{value}') ;".format(keyword=keyword,wha=wha ,where=where,time= time,name=name,value=value)
-       
-       
-        print(sql)
         try:
             self.cursor.execute(sql)
             self.db.commit()
         except Exception as e :
-            print("error22",e)
+            print("Log point 2 ",e) 
