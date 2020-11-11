@@ -6,9 +6,12 @@ import json
 import requests
 app = Flask(__name__)
 
-
 @app.route('/index',methods=['GET'])
 def index():
+    '''
+        input args = 지역 키워드 (WS,KR,YK,UJ,SU)
+        return json data (기상정보,방사선수치)
+    '''
     if request.method == 'GET' :
         arg = request.args.get('keyword')
         cr = CRUD()
@@ -27,6 +30,11 @@ def index():
 
 @app.route('/index2',methods=['GET'])
 def index2():
+    '''
+        db 추가로직 
+        input wha = 검색 키워드 radiorate or weather
+        return None
+    '''
     key='bMkM%2FSABk%2BZWxCygmK%2FjiC1l0m%2FcEOA5SWWYGGM4IJNBVoJCjxKGhz9LXSXL9lnDIxP%2FhmHc2%2F3Tyfdbk2p2Hg%3D%3D'
     keywordlist = ["WS","KR","YK","UJ","SU"]
     if request.method =="GET" :
