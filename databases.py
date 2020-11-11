@@ -1,6 +1,6 @@
 import psycopg2
 
-conn = psycopg2.connect(host='localhost', dbname='Test',user='postgres',password='1234',port=5432)
+conn = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword',port=5433)
 
 cur = conn.cursor()
 cur.execute("SELECT version();")

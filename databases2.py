@@ -3,8 +3,12 @@ import psycopg2
 
 class Databases():
     def __init__(self):
+<<<<<<< HEAD
         #self.db = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword ',port=5433) 
         self.db = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword',port=5433)
+=======
+        self.db = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword',port=5433) 
+>>>>>>> 056a044edd44ea2912ad115ae85f1f4fcfbdb273
         self.cursor = self.db.cursor()
         #cur = db.cursor()
         #cur.execute("SELECT version();")

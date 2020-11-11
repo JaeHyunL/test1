@@ -3,7 +3,12 @@ from databases2 import Databases
 class CRUD(Databases):
 
     def readData(self,keyword):
+<<<<<<< HEAD
         sql = "SELECT * FROM {}.radiationtable ;".format(keyword)
+=======
+
+        sql = " SELECT * FROM {}.radiationtable ;".format(keyword)
+>>>>>>> 056a044edd44ea2912ad115ae85f1f4fcfbdb273
         try: 
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
@@ -24,12 +29,17 @@ class CRUD(Databases):
         return result
     
 
+<<<<<<< HEAD
     def insertData(self,keyword,wha,where,time,name,value):
         if wha == 'radiorate':
             wha = 'radiationtable'
         sql = " INSERT INTO  {keyword}.{wha}  (where2, time ,name  ,value ) VALUES  ('{where}', '{time}', '{name}', '{value}') ;".format(keyword=keyword,wha=wha ,where=where,time= time,name=name,value=value)
        
        
+=======
+    def insertData(self,keyword,where,time,name,value):
+        sql = " INSERT INTO {radiation}.radiationtable (where2, time ,name  ,value ) VALUES ({where}, {time}, {name}, {value}) ;".format(radiation=keyword, where= where,time= time,name = name,value=value)
+>>>>>>> 056a044edd44ea2912ad115ae85f1f4fcfbdb273
         print(sql)
         try:
             self.cursor.execute(sql)
