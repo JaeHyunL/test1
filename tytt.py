@@ -24,6 +24,7 @@ print(cur.execute("SELECT * FROM yy "))
 
 cur.close()
 """
+            trueUrl='http://www.khnp.co.kr/environ/service/realtime/{wha}?serviceKey={key}&genName={keyword}'.format(wha=wha ,key=key,keyword=keyword)
 
 # KEWROD LIST  , WS : 월성 KR : 고리 YK : 한빛 UJ : 한울 SU : 새울
 
@@ -31,7 +32,7 @@ keywordlist = ["WS","KR","YK","UJ","SU"]
 for i in range(len(keywordlist)):
     keyword=keywordlist[i]
     key='bMkM%2FSABk%2BZWxCygmK%2FjiC1l0m%2FcEOA5SWWYGGM4IJNBVoJCjxKGhz9LXSXL9lnDIxP%2FhmHc2%2F3Tyfdbk2p2Hg%3D%3D'
-    trueUrl='http://www.khnp.co.kr/environ/service/realtime/radiorate?serviceKey=bMkM%2FSABk%2BZWxCygmK%2FjiC1l0m%2FcEOA5SWWYGGM4IJNBVoJCjxKGhz9LXSXL9lnDIxP%2FhmHc2%2F3Tyfdbk2p2Hg%3D%3D&genName=UJ'.format(key,keyword)
+    trueUrl='http://www.khnp.co.kr/environ/service/realtime/weather?serviceKey={key}&genName={keyword}'.format(key,keyword)
     # TEMP
     # 
     #  URL http://www.khnp.co.kr/environ/service/realtime/weather?servicekey=genName=
@@ -57,7 +58,7 @@ for i in range(len(keywordlist)):
     cur = conn.cursor()
     cur.execute("SELECT version();")
     record = cur.fetchone()
-    #print("You are connected to - ", record,"\n")
+    print("You are connected to - ", record,"\n")
     for i in range(len(whichslist)):
         where = whichslist[i]['expl'].replace('\n','')
         where = where.replace(' ','',6)
@@ -67,8 +68,9 @@ for i in range(len(keywordlist)):
         name = name.replace(' ','',6)
         value = whichslist[i]['value'].replace('\n','')
         value = value.replace(' ','',6) 
+        print(where,time,name,value)
         try : 
-            cur.execute("INSERT INTO {radiation}.radiationtable (where2, time ,name  ,value ) VALUES ({},{},{},{})".format(radiation=keyword,where,time,name,value))
+           cur.execute("INSERT INTO {keyword}.{whatable} (where2, time ,name  ,value ) VALUES ({},{},{},{})".format(keyword=keyword,radiatontable=wha,where,time,name,value))
         except : 
             print('error' )
             continue 

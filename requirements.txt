@@ -1,0 +1,5 @@
+flask==1.1.2
+beautifulsoup4==4.9.3
+et_xmlfile==1.0.1
+requests==2.24.0
+psycopg2==2.8.5  

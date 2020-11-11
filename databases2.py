@@ -1,9 +1,10 @@
 import psycopg2
-from psycopg2.extras import RealDictCursor
+
 
 class Databases():
     def __init__(self):
-        self.db = psycopg2.connect(host='localhost', dbname='Test',user='postgres',password='1234',port=5432) 
+        #self.db = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword ',port=5433) 
+        self.db = psycopg2.connect(host='34.64.167.104', dbname='test',user='postgres',password='mysecretpassword',port=5433)
         self.cursor = self.db.cursor()
         #cur = db.cursor()
         #cur.execute("SELECT version();")
