@@ -18,9 +18,9 @@ def index():
     if request.method == 'GET' :
         arg = request.args.get('keyword')
         arg2 = request.args.get('wha')
-        if arg2 == None :
+        if arg == None :
     
-            arg2 = arg
+            arg = arg2
 
         db = CRUD()
         result = db.readData(keyword=arg,wha=arg2)
@@ -131,10 +131,10 @@ def clear():
     
 sched = BackgroundScheduler()
 sched.start()
-sched.add_job(clear , 'interval' , seconds=10800, id='_1')
-sched.add_job(ierParser, 'interval', seconds=10800, id="_2")
-sched.add_job(doesParser, 'interval', seconds=10800, id="_3")
-sched.add_job(index2, 'interval', seconds=10800, id="_4")
+#sched.add_job(clear , 'interval' , seconds=10800, id='_1')
+sched.add_job(ierParser, 'interval', seconds=90, id="_2")
+sched.add_job(doesParser, 'interval', seconds=90, id="_3")
+#sched.add_job(index2, 'interval', seconds=10800, id="_4")
 
 
 
