@@ -28,7 +28,8 @@ class CRUD(Databases):
         '''
         if wha == 'radiorate':
             wha = 'radiation'
-        sql = " INSERT INTO  {wha}.{keyword}  (point, time ,name  ,value ) VALUES  ('{point}', '{time}', '{name}', '{value}') ;".format(keyword=keyword,wha=wha ,point=where,time= time,name=name,value=value)
+        sql = " INSERT INTO  {wha}.{keyword}  (point, time ,name  ,value ) VALUES  ('{point}', '{time}', '{name}', '{value}') ;".format(keyword=keyword,
+        wha=wha ,point=where,time= time,name=name,value=value)
         try:
             self.cursor.execute(sql)
             self.db.commit()
@@ -45,7 +46,9 @@ class CRUD(Databases):
 
     def insertDoseData(self,id,name,modelcode,time,unit,doserate,latitude,longitude,rainfall,temperatrue,windspeed,winddirection):
         sql = "INSERT INTO dose.dose (id,name,modelcode,time,unit,doserate,latitude,longitude,raintfall,temperatrue,windspeed,winddirection) "
-        sql += "VALUES ('{id}','{name}','{modelcode}' , '{time}','{unit}','{doserate}','{latitude}','{longitude}','{rainfall}','{temperatrue}','{windspeed}' ,'{windspeed}' ) ;".format(id=id,name=name,modelcode=modelcode,time=time,unit=unit,doserate=doserate,latitude=latitude,longitude=longitude,rainfall=rainfall,temperatrue=temperatrue,windspeed=windspeed,winddirection=winddirection)
+        sql += "VALUES ('{id}','{name}','{modelcode}' , '{time}','{unit}','{doserate}','{latitude}','{longitude}','{rainfall}','{temperatrue}','{windspeed}' ,'{windspeed}' ) ;".format(id=id,name=name,
+        modelcode=modelcode,time=time,unit=unit,doserate=doserate,latitude=latitude,longitude=longitude,
+        rainfall=rainfall,temperatrue=temperatrue,windspeed=windspeed,winddirection=winddirection)
         try:
             self.cursor.execute(sql)
             self.db.commit()
