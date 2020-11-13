@@ -144,7 +144,7 @@ def doesParser():
                           result[i]['windspeed'], result[i]['winddirection'])
     return 'helloww Flask'
 
-
+@app.route('/clear',methods=['GET'])
 def clear():
     db = CRUD()
     keywordlist = ["WS", "KR", "YK", "UJ", "SU", 'radiation', 'dose']
@@ -153,7 +153,7 @@ def clear():
         try:
             for j in range(len(whalist)):
                 try:
-                    db.cleartable(whalist[i], keywordlist[i])
+                    db.cleartable(wha=whalist[i], keyword=keywordlist[j])
                 except:
                     continue
         except:
