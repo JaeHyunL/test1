@@ -7,8 +7,8 @@ from flask import Flask, render_template, request, jsonify
 from xml.etree import ElementTree
 import json
 import requests
-app = Flask(__name__)
 
+app = Flask(__name__)
 
 @app.route('/index', methods=['GET'])
 def index():
@@ -17,6 +17,7 @@ def index():
         :input args : 지역 키워드 (WS,KR,YK,UJ,SU)
         :return :json data (기상정보,방사선수치)
     '''
+    start = time.time() 
     if request.method == 'GET':
         arg = request.args.get('keyword')
         arg2 = request.args.get('wha')
@@ -31,9 +32,9 @@ def index():
             finalResult[i+1] = result[i]
             finalResult[(i+1)*100] = result[i]
         finalResult = json.dumps(finalResult, ensure_ascii=False, indent=4)
-        #print(finalResult,type(finalResult))
+    print("time :", time.time() - start)
+    
     return finalResult
-
 
 @app.route('/index2', methods=['GET'])
 def index2():
@@ -87,9 +88,6 @@ def index2():
                     continue
     return "hellow flask2"
 
-
-
-
 @app.route('/init', methods=['GET'])
 def ierParser():
     '''
@@ -124,7 +122,6 @@ def ierParser():
 
     return 'hellow Flask'
 
-
 @app.route('/soulkey', methods=['GET'])
 def doesParser():
     '''
@@ -156,13 +153,10 @@ def clear():
                 
     return 'hellow Flask'
 
-
-
 sched = BackgroundScheduler()
 sched.start()
-sched.add_job(ierParser, 'interval', seconds=600, id="_1")
-sched.add_job(index2, 'interval', seconds=600, id="_2")
-sched.add_job(doesParser, 'interval', seconds=600, id="_3")
-
+#sched.add_job(ierParser, 'interval', seconds=600, id="_1")
+#ched.add_job(index2, 'interval', seconds=600, id="_2")
+#sched.add_job(doesParser, 'interval', seconds=600, id="_3")
 
 app.run(host="0.0.0.0", port=5000)
