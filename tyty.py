@@ -7,8 +7,8 @@ def ierParser():
     
     key = 'BV359oacvun7ZaVBlnAuPnLq3bj7AxJbVK8jdrWotyJwuQNVUP96aQ4XJNBiEdc8kMlPbvi3RVBaeZ5mONmvxNBEPlZQqyjPWKLip73jrFoEOe2uSYT00rKXKg90VRNdvvEUOW7QUDDsi60vsp8RfsYoAxXI8DNZ1LSdZig5bCgxnbzOqNHqT67DWZTa8zSQzo1WnWVKICzcMlBi8Jbu5hG4NPGAOF6muP88kckT27hQHf0vYvcyXhVRi6IXQV5DFNs6mC7giH27AzxsZUmcnHOM4qaoTMCgCdK3w4IVy5PPpXRsJa86tdZ78gC6mTMWFV5gp35eLQor29ggYre3NGxjEM5Q1Mset3KUcvDPeducysF99fh5yTI8hWcc8om8iJ88yMDnnPYuVVuVG5RWoxqZvMwGTlR00w4otHLxc4Rj5YmMlGWCXQTudjMmZ7UC7h3jbFl8ue4ufGdXjkeMOOdkcJKK4iXekPmXfDufeXS2WjOXFzDydHxsESHR5aEL'
     uid = 'ulju'
-    url = 'https://IERNet.kins.re.kr/IERNet.asmx/jsonData?UID={uid}&AKEY={key}'.format(uid= uid,key= key)
-    req = requests.get(url)
+    url = 'https://SOURCE SCRIPTING DOSE NOT EXIT SOULKEY UH UH UH HUH RARARA LA LALALALA GALBI SMS AKTSLEKDr/IERNet.asmx/jsonData?UID={uid}&AKEY={key}'.format(uid= uid,key= key)
+    req = requests.SOURCE SCRIPTING DOSE NOT EXIT SOULKEY UH UH UH HUH RARARA LA LALALALA GALBI SMS AKTSLEKD
     if req.status_code == 200:
             
         html = req.text 
