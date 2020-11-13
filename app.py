@@ -44,10 +44,9 @@ def index2():
     '''
     key = 'bMkM%2FSABk%2BZWxCygmK%2FjiC1l0m%2FcEOA5SWWYGGM4IJNBVoJCjxKGhz9LXSXL9lnDIxP%2FhmHc2%2F3Tyfdbk2p2Hg%3D%3D'
     keywordlist = ["WS", "KR", "YK", "UJ", "SU"]
-    
-    #wha = request.args.get('wha')
-    for ei in range(2):
-        whalist = ['weather', 'radiation']
+   
+    whalist = ['weather', 'radiorate']
+    for ei in range(len(whalist)):
         wha = whalist[ei]
         for i in range(len(keywordlist)):
             keyword = keywordlist[i]
@@ -87,6 +86,8 @@ def index2():
                     print('errorpoint 2', e)
                     continue
     return "hellow flask2"
+
+
 
 
 @app.route('/init', methods=['GET'])
@@ -147,22 +148,20 @@ def doesParser():
 @app.route('/clear',methods=['GET'])
 def clear():
     db = CRUD()
-    keywordlist = ["WS", "KR", "YK", "UJ", "SU", 'radiation', 'dose']
     whalist = ['weather', 'iernet', 'radiation', 'dose']
-    for i in range(len(keywordlist)):
-        try:
-            for j in range(len(whalist)):
-                try:
-                    db.cleartable(wha=whalist[i], keyword=keywordlist[j])
-                except:
-                    continue
-        except:
-            continue
+    keywordlist = ["WS", "KR", "YK", "UJ", "SU", 'dose' ,'iernet']
+    for i in range(len(whalist)):
+        for j in range(len(keywordlist)):
+            db.cleartable(wha=whalist[i], keyword=keywordlist[j])
+                
+    return 'hellow Flask'
 
-sched = BackgroundScheduler()
-sched.start()
-sched.add_job(ierParser, 'interval', seconds=90, id="_2")
-sched.add_job(doesParser, 'interval', seconds=90, id="_3")
+
+
+#sched = BackgroundScheduler()
+#sched.start()
+#sched.add_job(ierParser, 'interval', seconds=90, id="_2")
+#sched.add_job(doesParser, 'interval', seconds=90, id="_3")
 
 
 app.run(host="0.0.0.0", port=5000)

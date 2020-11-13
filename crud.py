@@ -7,7 +7,25 @@ class CRUD(Databases):
             input: keyword location code
             return: radiation table
         """
-        sql = "SELECT * FROM {wha}.{keyword} ;".format(wha=wha,keyword=keyword)
+        if wha =='weather':
+            if keyword == 'KR' :
+                num = 10
+            else :
+                num = 5
+        elif wha =='radiation' :
+            if keyword == 'UJ' or keyword == 'WS':
+                num = 24
+            elif keyword == 'YK' :
+                num = 23
+            elif keyword == 'KR' :
+                num = 12
+            elif keyword == 'SU' :
+                num = 14 
+        elif wha =='dose' :
+            num = 11
+        elif wha =='iernet':
+            num = 171
+        sql = "SELECT * FROM {wha}.{keyword} order by time desc fetch first {num} rows only ;".format(wha=wha,keyword=keyword ,num=num)
         try: 
             self.cursor.execute(sql)
             result = self.cursor.fetchall()
