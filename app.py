@@ -150,8 +150,14 @@ def clear():
     keywordlist = ["WS", "KR", "YK", "UJ", "SU", 'radiation', 'dose']
     whalist = ['weather', 'iernet', 'radiation', 'dose']
     for i in range(len(keywordlist)):
-        db.cleartable(whalist[i], keywordlist[i])
-
+        try:
+            for j in range(len(whalist)):
+                try:
+                    db.cleartable(whalist[i], keywordlist[i])
+                except:
+                    continue
+        except:
+            continue
 
 sched = BackgroundScheduler()
 sched.start()
